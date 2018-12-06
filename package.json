@@ -4,24 +4,25 @@
     "description": "VS Code notes",
     "version": "0.0.1",
     "engines": {
-        "vscode": "^1.29.0"
+        "vscode": "^1.15.0"
     },
     "categories": [
         "Programming Languages",
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello",
-        "onLanguage:Note"
+        "*"
     ],
     "main": "./out/extension",
     "contributes": {
-        "languages": [{
-            "id": "Note",
-            "extensions": [
-                ".note"
-            ]
-        }],
+        "languages": [
+            {
+                "id": "Note",
+                "extensions": [
+                    ".note"
+                ]
+            }
+        ],
         "commands": [
             {
                 "command": "extension.sayHello",
