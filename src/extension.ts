@@ -69,27 +69,31 @@ function updateDecorations() {
     if (!activeEditor) {
         return;
     }
-    const regEx = /(!)/g;
-    const text = activeEditor.document.getText();
-    const smallNumbers: DecorationOptions[] = [];
-    const largeNumbers: DecorationOptions[] = [];
-    let match;
-    while (match = regEx.exec(text)) {
-        const startPos = activeEditor.document.positionAt(match.index);
-        const endPos = activeEditor.document.positionAt(match.index + match[0].length);
-        const decoration = { range: new Range(startPos, endPos), hoverMessage: 'Number **' + match[0] + '**' };
-        if (match[0].length < 3) {
-            smallNumbers.push(decoration);
-        } else {
-            largeNumbers.push(decoration);
-        }
+
+    if (activeEditor.document.languageId !== 'Note') {
+        return;
     }
+    // const regEx = /(!)/g;
+    // const text = activeEditor.document.getText();
+    // const smallNumbers: DecorationOptions[] = [];
+    // const largeNumbers: DecorationOptions[] = [];
+    // let match;
+    // while (match = regEx.exec(text)) {
+    //     const startPos = activeEditor.document.positionAt(match.index);
+    //     const endPos = activeEditor.document.positionAt(match.index + match[0].length);
+    //     const decoration = { range: new Range(startPos, endPos), hoverMessage: 'Number **' + match[0] + '**' };
+    //     if (match[0].length < 3) {
+    //         smallNumbers.push(decoration);
+    //     } else {
+    //         largeNumbers.push(decoration);
+    //     }
+    // }
 
     //let decorations: TextSection[] = parseDocument(activeEditor);
 
-    clearFlags();
-    selections = [];
-    options = [];
+    // clearFlags();
+    // selections = [];
+    // options = [];
 
     //findToken(text, activeEditor);
 
@@ -174,7 +178,8 @@ function clearFlags() {
 }
 
 let renderRanges: { [id: string]: DecorationOptions[] } = {
-    '!': []
+    '!': [],
+    '|': []
 };
 
 let tokens: { [id: string] : TokenDescription } = {
