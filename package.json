@@ -1,6 +1,10 @@
 {
     "name": "plaguenotes",
     "publisher": "nickweiss",
+    "repository": {
+        "url": "https://github.com/vanmxpx/plaguenotes",
+        "type": "git"
+    },
     "displayName": "PlagueNotes",
     "description": "VS Code notes",
     "version": "0.0.1",
