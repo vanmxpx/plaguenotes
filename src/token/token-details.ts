@@ -1,4 +1,4 @@
-import { DecorationRenderOptions, TextEditorDecorationType } from "vscode";
+import { TextEditorDecorationType } from "vscode";
 
 export interface TokenDescription {
     // readonly id: string;
